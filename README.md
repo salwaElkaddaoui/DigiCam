@@ -17,6 +17,5 @@ You can either setup an **ssh connection** to the raspberry pi, or just **connec
 - For those of you who, like me, struggle with the english layout of the keyboard, you can change it to the french layout with `setxkbmap fr`
 
 ### Docker installation
-1. Install **docker.io** instead of **docker-ce**: `sudo apt-get install docker.io`
-I don't know why, but the package manager on raspbian is unable to locate docker-ce.
-2. Check the installation success with `sudo docker run hello-world`.
+1. Install **docker.io** instead of **docker-ce**: `sudo apt-get install docker.io`. I don't know why, but the package manager on raspbian is unable to locate docker-ce.
+2. Check the installation success with `sudo docker run hello-world`
