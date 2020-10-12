@@ -1,7 +1,7 @@
 # Hardware and software setup
 ## Hardware
-- a [raspberry pi 2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/)
-- a micro SD Card with a 16GB capacity. Read [here] (https://www.raspberrypi.org/documentation/installation/sd-cards.md) to know the minimum required size for the sd card.
+- a [raspberry pi 2 Model B](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/)
+- a micro SD Card with a 16GB capacity. Read [here](https://www.raspberrypi.org/documentation/installation/sd-cards.md) to know the minimum required size for the SD Card.
 
 ## Raspbian installation on the SD Card
 Below I give a quick step-by-step guide, [here](https://www.raspberrypi.org/documentation/installation/installing-images/) you'll find a more detailed description.
@@ -13,9 +13,10 @@ Below I give a quick step-by-step guide, [here](https://www.raspberrypi.org/docu
 6. Insert the SD Card on you raspberry pi.
 
 ## Dependencies installation on raspbian
-You can either setup an **ssh connection** to the raspberry pi, or just connect a monitor, a mouse and a keyboard to the raspberry pi and use it as a regular computer (which I did).
+You can either setup an **ssh connection** to the raspberry pi, or just **connect a monitor, a mouse and a keyboard to the raspberry pi** and use it as a regular computer (which I did).
 - For those of you who, like me, struggle with the english layout of the keyboard, you can change it to the french layout with `setxkbmap fr`
 
 ### Docker installation
-Install **docker.io** instead of **docker-ce** `sudo apt-get install docker.io` (I don't know why, but the package manager on raspbian is unable to locate docker-ce).
-Check the installation success with `sudo docker run hello-world`.
+1. Install **docker.io** instead of **docker-ce**: `sudo apt-get install docker.io`
+I don't know why, but the package manager on raspbian is unable to locate docker-ce.
+2. Check the installation success with `sudo docker run hello-world`.
