@@ -10,8 +10,8 @@ Below I give a quick step-by-step guide, [here](https://www.raspberrypi.org/docu
 
 ## Dependencies installation on raspbian
 You can setup an ssh connection to the raspberry pi. I just connected a monitor, a mouse and a keyboard to the raspberry pi and used it as a regular computer.
-- For those of you who struggle with the english layout of the keyboard, you can change it to the french layout with `setxkbmap fr`
+- For those of you who, like me, struggle with the english layout of the keyboard, you can change it to the french layout with `setxkbmap fr`
 
 ### Docker installation
-Install **docker.io** instead of **docker-ce** `<sudo apt-get install docker.io>` (I don't know why but the package manager on raspbian is unable to locate docker-ce).
-Check the installation success with `<sudo docker run hello-world>`.
+Install **docker.io** instead of **docker-ce** `sudo apt-get install docker.io` (I don't know why, but the package manager on raspbian is unable to locate docker-ce).
+Check the installation success with `sudo docker run hello-world`.
