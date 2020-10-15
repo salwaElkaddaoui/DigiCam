@@ -25,6 +25,7 @@ I used the first method of [this guide](https://docs.docker.com/develop/develop-
 In short, run these 2 commands from your working directory:
 
 `$ sudo debootstrap buster buster > /dev/null`
+
 `$ sudo tar -C buster -c . | docker import - buster`
 
 You'll notice that a folder named buster was created in your working directory. It contains the filesystem of your docker image.
