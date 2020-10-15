@@ -29,12 +29,12 @@ In short, run these 2 commands from your working directory:
 `$ sudo tar -C buster -c . | docker import - buster`
 
 You'll notice that a folder named buster was created in your working directory. It contains the filesystem of your docker image.
-The to be able to instantiate a container that you can execute in the interactive mode, you need to create a new image by building this Dockerfile:
+To be able to instantiate a container that you can execute in interactive mode, you need to create a new image by building this Dockerfile:
 ```
 FROM buster:latest
 ENTRYPOINT bash
 ```
-#### Second: writing of the tensorflow Dockerfile
+#### Second: writing the tensorflow Dockerfile
 The following steps are:
 - installation of openjdk-8-jdk
 - installation of bazel
