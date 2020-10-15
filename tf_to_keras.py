@@ -1,3 +1,6 @@
+"""
+Converts a keras model (.hdf5 or h5) to a frozen graph file (.pb)
+"""
 import tensorflow as tf
 def freeze_session(session, keep_var_names=None, output_names=None, clear_devices=True):
     """

@@ -1,3 +1,6 @@
+"""
+Trains a CNN on the MNIST dataset using keras.
+"""
 #another digits dataset https://github.com/kensanata/numbers
 import numpy as np
 from tensorflow import keras
@@ -19,7 +22,6 @@ x_test = np.expand_dims(x_test, -1)
 print("x_train shape:", x_train.shape)
 print(x_train.shape[0], "train samples")
 print(x_test.shape[0], "test samples")
-
 
 # convert class vectors to binary class matrices
 y_train = keras.utils.to_categorical(y_train, num_classes)

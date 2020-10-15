@@ -1,3 +1,8 @@
+"""
+Reads a frozen graph (.pb file) and saves the graph in a tensorboard logdir
+I use it to get the names of input and output nodes, which are necessary for
+making an inference using the frozen graph file
+"""
 import tensorflow as tf
 from tensorflow.python.platform import gfile
 with tf.Session() as sess:
@@ -10,4 +15,3 @@ with tf.Session() as sess:
         writer.add_graph(sess.graph)
         writer.flush()
         writer.close()
-        

@@ -1,3 +1,6 @@
+"""
+Inference on a frozen graph file. Names of input and output nodes are specific to this model
+"""
 import tensorflow as tf
 from tensorflow.python.platform import gfile
 import matplotlib.image as mpimg

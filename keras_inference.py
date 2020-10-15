@@ -1,3 +1,8 @@
+"""
+Inference on a keras model
+Path to input image and path to h5 file shoud be given as arguments to this script
+"""
+
 import sys, os
 import tensorflow as tf
 import numpy as np
