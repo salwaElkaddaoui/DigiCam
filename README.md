@@ -3,7 +3,8 @@
 - a [raspberry pi 2 Model B](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/)
 - a micro SD Card with a 16GB capacity. Read [here](https://www.raspberrypi.org/documentation/installation/sd-cards.md) to know the minimum required size for the SD Card.
 
-## Raspberry pi OS installation on the SD Card
+##Software
+### Raspberry pi OS installation on the SD Card
 Below I give a quick step-by-step guide, [here](https://www.raspberrypi.org/documentation/installation/installing-images/) you'll find a more detailed description.
 1. Download [the latest raspbian distribution](https://www.raspberrypi.org/downloads/raspberry-pi-os/) and unzip it like this: `unzip 2020-08-20-raspios-buster-armhf.zip`
 2. Insert the SD Card in your computer and look for its mount point in your file system using `lsblk -p`
@@ -17,8 +18,8 @@ Below I give a quick step-by-step guide, [here](https://www.raspberrypi.org/docu
 1. Install **docker.io** instead of **docker-ce**: `sudo apt-get install docker.io`.
 2. Check the installation success with `sudo docker run hello-world`
 
-## Creation of a tensorflow docker image
-### First: creation of base image from buster (buster is the version name of the raspberry pi OS)
+### Creation of a tensorflow docker image
+#### First: creation of base image from buster (buster is the version name of the raspberry pi OS)
 I used the first method of [this guide](https://docs.docker.com/develop/develop-images/baseimages/) to create a docker image of buster.
 In short, run these 2 commands from your working directory:
 - `$ sudo debootstrap buster buster > /dev/null`
@@ -28,7 +29,7 @@ The to be able to instantiate a container that you can execute in the interactiv
 ```FROM buster
 ENTRYPOINT bash
 ```
-### Second: writing of the tensorflow Dockerfile
+#### Second: writing of the tensorflow Dockerfile
 The following steps are:
 - installation of openjdk-8-jdk
 - installation of bazel
