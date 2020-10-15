@@ -23,12 +23,14 @@ Below I give a quick step-by-step guide, [here](https://www.raspberrypi.org/docu
 #### First: creation of base image from buster (buster is the version name of the raspberry pi OS)
 I used the first method of [this guide](https://docs.docker.com/develop/develop-images/baseimages/) to create a docker image of buster.
 In short, run these 2 commands from your working directory:
+
 `$ sudo debootstrap buster buster > /dev/null`
 `$ sudo tar -C buster -c . | docker import - buster`
 
-You'll notice that a folder with the name buster was created in your working directory. It contains the filesystem of your docker image.
+You'll notice that a folder named buster was created in your working directory. It contains the filesystem of your docker image.
 The to be able to instantiate a container that you can execute in the interactive mode, you need to create a new image by building this Dockerfile:
-```FROM buster
+```
+FROM buster:latest
 ENTRYPOINT bash
 ```
 #### Second: writing of the tensorflow Dockerfile
