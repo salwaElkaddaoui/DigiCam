@@ -15,12 +15,12 @@ Below I give a quick step-by-step guide, [here](https://www.raspberrypi.org/docu
 - To communicate with the raspberry pi, you can either setup an **ssh connection**, or just **connect a monitor, a mouse and a keyboard to the raspberry pi** and use it as a regular computer (which I did).
 - For those of you who, like me, struggle with the english layout of the keyboard, you can change it to the french layout with `setxkbmap fr`
 
-### Docker installation on the Raspberry OS
+### Docker installation on the Raspberry pi OS
 1. Install **docker.io** instead of **docker-ce**: `sudo apt-get install docker.io`.
 2. Check the installation success with `sudo docker run hello-world`
 
 ### Creation of a tensorflow docker image
-#### First: creation of base image from buster (buster is the version name of the raspberry pi OS)
+#### First: creation of base image from buster (buster is the version name of the Raspberry pi OS)
 I used the first method of [this guide](https://docs.docker.com/develop/develop-images/baseimages/) to create a docker image of buster.
 In short, run these 2 commands from your working directory:
 
