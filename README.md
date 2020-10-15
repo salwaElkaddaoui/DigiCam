@@ -18,6 +18,7 @@ Below I give a quick step-by-step guide, [here](https://www.raspberrypi.org/docu
 ### Docker installation on the Raspberry pi OS
 1. Install **docker.io** instead of **docker-ce**: `sudo apt-get install docker.io`.
 2. Check the installation success with `sudo docker run hello-world`
+3. To spare yourself the pain of typing sudo at each docker command, run `sudo usermod -aG docker <your_username>` 
 
 ### Creation of a tensorflow docker image
 #### First: creation of base image from buster (buster is the version name of the Raspberry pi OS)
