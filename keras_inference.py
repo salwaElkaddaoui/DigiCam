@@ -15,9 +15,9 @@ parser.add_argument('--mo', dest='mo', help='model path')
 args = parser.parse_args()
 
 if not os.path.exists(args.im):
-    raise IOError('Given image path does not exists')
+    raise IOError('Given image path does not exist')
 if not os.path.exists(args.mo):
-    raise IOError('Given image path does not exists')
+    raise IOError('Given model path does not exist')
 
 model = tf.keras.models.load_model(args.mo, compile = True)
 image = read_image(args.im)
