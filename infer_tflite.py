@@ -3,7 +3,6 @@ Makes an inference on a tflite model.
 based on: https://github.com/tensorflow/examples/blob/master/lite/examples/image_classification/raspberry_pi/classify_picamera.py
 """
 import os
-import tensorflow as tf
 import numpy as np
 from PIL import Image
 import argparse
