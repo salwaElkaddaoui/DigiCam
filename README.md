@@ -13,14 +13,13 @@ Below I give a quick step-by-step guide, [here](https://www.raspberrypi.org/docu
 5. Insert the SD Card on you raspberry pi, and power the latter on.
 
 - To communicate with the raspberry pi, you can either setup an **ssh connection**, or just **connect a monitor, a mouse and a keyboard to the raspberry pi** and use it as a regular computer (which I did).
-- For those of you who, like me, struggle with the english layout of the keyboard, you can change it to the french layout with `setxkbmap fr`
 
 ### Docker installation on the Raspberry pi OS
 1. Install **docker.io** instead of **docker-ce**: `sudo apt-get install docker.io`.
 2. Check the installation success with `sudo docker run hello-world`
-3. To spare yourself the pain of typing sudo at each docker command, run `sudo usermod -aG docker <your_username>` 
+3. To spare yourself the pain of typing sudo at each docker command, run `sudo usermod -aG docker <your_username>`
 
-### Creation of a tensorflow docker image
+### Creation of a tensorflow lite docker image
 #### First: creation of base image from buster (buster is the version name of the Raspberry pi OS)
 I used the first method of [this guide](https://docs.docker.com/develop/develop-images/baseimages/) to create a docker image of buster.
 In short, run these 2 commands from your working directory:
@@ -35,8 +34,12 @@ To be able to instantiate a container that you can execute in interactive mode, 
 FROM buster:latest
 ENTRYPOINT bash
 ```
-#### Second: writing the tensorflow Dockerfile
-The following steps are:
-- installation of openjdk-8-jdk
-- installation of bazel
-- building tensorflow using a script in tensorflow/tools/ci_build/build_raspberrypi.sh
+#### Second: writing a Dockerfile with the tensorflow lite interpreter
+
+Building Bazel and Tensorflow on the raspberry pi takes ages because it requires a lot of computational resources and memory, maybe these are available on the raspberry pi 3 and 4, but for raspberry pi model B, it's just imporssible. So I used Tensorflow Lite instead.
+
+[Tensorflow lite](https://www.tensorflow.org/lite/guide) is set of tools for making low latency small size inferences on resource-constrained devices (mobile devices, raspberry pis, ...). It's used only for inference, and it has 2 main components:
+
+1. The Tensorflow Lite Converter: install it on your computer to convert the tensorflow model to tensorflow lite.
+
+2. The Tensorflow Lite Interpreter: install it on the raspberry pi to be able to do inferences on the tensorflow lite model.
