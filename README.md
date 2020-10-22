@@ -36,10 +36,12 @@ ENTRYPOINT bash
 ```
 #### Second: writing a Dockerfile with the tensorflow lite interpreter
 
-Building Bazel and Tensorflow on the raspberry pi takes ages because it requires a lot of computational resources and memory, maybe these are available on the raspberry pi 3 and 4, but for raspberry pi model B, it's just imporssible. So I used Tensorflow Lite instead.
+Building Bazel and Tensorflow on the raspberry pi takes ages because it requires a lot of computational resources and memory, maybe these are available on the raspberry pi 3 and 4, but for the raspberry pi model 2 model B, it's just impossible. So I used **Tensorflow Lite** instead.
 
-[Tensorflow lite](https://www.tensorflow.org/lite/guide) is set of tools for making low latency small size inferences on resource-constrained devices (mobile devices, raspberry pis, ...). It's used only for inference, and it has 2 main components:
+[Tensorflow lite](https://www.tensorflow.org/lite/guide) is a set of tools for making inferences on resource-constrained devices. The advantage is 2-fold: inferences are faster and the model binary is smaller in size.
 
-1. The Tensorflow Lite Converter: install it on your computer to convert the tensorflow model to tensorflow lite.
+Tensorflow Lite is used only for inference (model definition and training have still to be done in tensorflow), and it has 2 main components:
 
-2. The Tensorflow Lite Interpreter: install it on the raspberry pi to be able to do inferences on the tensorflow lite model.
+1. **The Tensorflow Lite Converter**: install it on your computer to convert the tensorflow model to a tensorflow lite model.
+
+2. **The Tensorflow Lite Interpreter**: install it on the raspberry pi to be able to do inferences on the tensorflow lite model.
