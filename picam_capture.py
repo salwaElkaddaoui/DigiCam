@@ -1,3 +1,7 @@
+"""
+Capture an image with a picam rev2.
+Based on: https://projects.raspberrypi.org/en/projects/getting-started-with-picamera
+"""
 from picamera import PiCamera
 from time import sleep
 
