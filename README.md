@@ -1,7 +1,7 @@
 # Hardware and software setup
 ## Hardware
 - a [raspberry pi 2 Model B](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/)
-- a micro SD Card with a 16GB capacity. Read [here](https://www.raspberrypi.org/documentation/installation/sd-cards.md) to know the minimum required size for the SD Card.
+- a micro SD Card with a 16GB capacity. Read [this page](https://www.raspberrypi.org/documentation/installation/sd-cards.md) to know the minimum required size for the SD Card.
 
 ## Software
 ### Raspberry pi OS installation on the SD Card
