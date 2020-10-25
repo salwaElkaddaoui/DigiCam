@@ -11,6 +11,7 @@ Usefulness: by visualizing the graph in tensorboard, you can find the names
 of input and output nodes of the graph, which are necessary for making
 an inference on a neural network.
 
+Author: Salwa EL KADDAOUI
 """
 
 from __future__ import unicode_literals
