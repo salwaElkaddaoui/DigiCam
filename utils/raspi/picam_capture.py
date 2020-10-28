@@ -3,10 +3,10 @@ Capture an image with a picam rev2.
 Based on: https://projects.raspberrypi.org/en/projects/getting-started-with-picamera
 """
 import os
+from time import sleep
 import argparse
 import logging
 
-from time import sleep
 try:
     from picamera import PiCamera
 except:
@@ -15,7 +15,7 @@ except:
 
 if __name__=='__main__':
 
-    parser = argparse.ArgumentParser(description='Process some integers.')
+    parser = argparse.ArgumentParser(description='Utility of capturing imges with a picamera')
     parser.add_argument('--resolution', dest='res', help='image path')
     parser.add_argument('--fps', dest='fps', type=int, help='model path')
     parser.add_argument('--output', dest='out', help='model path')
