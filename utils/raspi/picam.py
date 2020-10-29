@@ -8,23 +8,24 @@ try:
 except:
     raise ImportError('You need to pip3 install picamera')
 
-def capture(output: str, resolution: tuple, fps: int) -> None:
-    """Capture an image and save it.
+def capture(resolution: tuple, fps: int) -> None:
+    """Capture an image and return it as a numpy array.
         #Arguments:
-            output: path where to save captures image, for instance: /home/pi/image.jpg
             resolution: image resolution, for example (640, 480)
             fps: frame rate, for example: 15
         #Returns:
-            None
+            image as numpy array
     """
-    assert isinstance(output, str), "output should be a sting representing the path to output image "
     assert isinstance(fps, int), "fps should be an integer"
     assert isinstance(resolution, tuple), "resolution should be a tuple"
 
+    output = np.empty((resolution[0], resolution[1], 3), dtype=np.uint8)
     camera = PiCamera()
     camera.resolution = tuple(resolution) #(640, 480)
     camera.framerate = fps #15
     camera.start_preview()
     sleep(0.1)
-    camera.capture(args.out) #'/home/pi/image.jpg'
+    camera.capture(output, 'rgb')
     camera.stop_preview()
+    return output
+    # camera.capture(args.out) #'/home/pi/image.jpg'

@@ -1,0 +1,12 @@
+cnn:
+  trained:
+    tflite: "cnn/ckpt/best_model.tflite"
+    keras: "cnn/ckpt/best_model.hdf5"
+    tf: "cnn/ckpt/best_model.pb"
+  training:
+    input_shape: [28,28,1]
+    batch_size: 128
+    epochs: 15
+    data: ""
+  test:
+    data: "dataset"
