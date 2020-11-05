@@ -1,0 +1,20 @@
+HW:
+  push_button:
+    pin: 10
+  picam:
+    fps: 15
+    resolution: [640, 480]
+
+SW:
+  cnn:
+    trained:
+      tflite: "cnn/ckpt/best_model.tflite"
+      keras: "cnn/ckpt/best_model.hdf5"
+      tf: "cnn/ckpt/best_model.pb"
+    training:
+      input_shape: [28,28,1]
+      batch_size: 128
+      epochs: 15
+      data: ""
+    test:
+      data: "dataset"
