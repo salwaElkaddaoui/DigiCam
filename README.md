@@ -6,10 +6,10 @@
 ## Software
 ### Raspberry pi OS installation on the SD Card
 Below I give a quick step-by-step guide, [here](https://www.raspberrypi.org/documentation/installation/installing-images/linux.md) you'll find a more detailed description.
-1. Download [the latest raspbian distribution](https://www.raspberrypi.org/downloads/raspberry-pi-os/) and unzip it: `unzip 2020-08-20-raspios-buster-armhf.zip`
+1. Download [the latest raspbian distribution](https://www.raspberrypi.org/downloads/raspberry-pi-os/) and unzip it: `unzip 2021-01-11-raspios-buster-armhf-lite.zip`
 2. Insert the SD Card in your computer and look for its mount point in your file system using `lsblk -p`
 3. Unmount it. For instance, in my case I run `umount /dev/mmcblk0`, **/dev/mmcblk0** being the mountpoint of my SD Card in my computer's file system.
-4. Copy the Raspbian OS image content to your SD Card: `dd bs=4M if=2020-08-20-raspios-buster-armhf.img of=/dev/mmcblk0 conv=fsync status=progress`
+4. Copy the Raspbian OS image content to your SD Card: `sudo dd bs=4M if=2021-01-11-raspios-buster-armhf-lite.img of=/dev/mmcblk0 conv=fsync status=progress`
 5. Insert the SD Card on you raspberry pi, and power the latter on.
 
 - To communicate with the raspberry pi, you can either setup an **ssh connection**, or just **connect a monitor, a mouse and a keyboard to the raspberry pi** and use it as a regular computer (which I did).
