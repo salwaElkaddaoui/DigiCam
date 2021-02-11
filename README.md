@@ -7,9 +7,9 @@
 ### Raspberry pi OS installation on the SD Card
 Below I give a quick step-by-step guide, [here](https://www.raspberrypi.org/documentation/installation/installing-images/linux.md) you'll find a more detailed description.
 1. Download [the latest raspbian distribution](https://www.raspberrypi.org/downloads/raspberry-pi-os/) and unzip it: `unzip 2021-01-11-raspios-buster-armhf-lite.zip`
-2. Format your sd card following this [tutorial](https://ragnyll.gitlab.io/2018/05/22/format-a-sd-card-to-fat-32linux.html)
-3. Insert the SD Card in your computer and look for its mount point in your file system using `lsblk -p`
-4. Unmount it. For instance, in my case I run `umount /dev/mmcblk0`, **/dev/mmcblk0** being the mountpoint of my SD Card in my computer's file system.
+2. Insert the SD Card in your computer and look for its mount point in your file system using `lsblk -p`
+3. Unmount it. For instance, in my case I run `umount /dev/mmcblk0`, **/dev/mmcblk0** being the mountpoint of my SD Card in my computer's file system.
+4. Format your sd card following this [tutorial](https://ragnyll.gitlab.io/2018/05/22/format-a-sd-card-to-fat-32linux.html)
 5. Copy the Raspbian OS image content to your SD Card: `sudo dd bs=4M if=2021-01-11-raspios-buster-armhf-lite.img of=/dev/mmcblk0 conv=fsync status=progress`
 6. Insert the SD Card on you raspberry pi, and power the latter on.
 
