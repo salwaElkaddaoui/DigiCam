@@ -15,7 +15,7 @@ Below I give a quick step-by-step guide, [here](https://www.raspberrypi.org/docu
 5. Insert the SD Card on you raspberry pi, and power the latter on.
 
 #### Method 2: Startup Disk Creator
-** Startup Disk Creator ** is installed by default on ubuntu, I successfully tried it on Ubuntu 18.04.  
+**Startup Disk Creator** is installed by default on ubuntu, I successfully tried it on Ubuntu 18.04.  
 
 
 - To communicate with the raspberry pi, you can either setup an **ssh connection**, or just **connect a monitor, a mouse and a keyboard to the raspberry pi** and use it as a regular computer (which I did).
