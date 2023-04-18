@@ -12,6 +12,9 @@ Below I give a quick step-by-step guide, [here](https://www.raspberrypi.org/docu
 4. Copy the Raspbian OS image content to your SD Card: `sudo dd bs=4M if=2021-01-11-raspios-buster-armhf-lite.img of=/dev/mmcblk0 conv=fsync status=progress`
 5. Insert the SD Card on you raspberry pi, and power the latter on.
 
+#### Another method to use on ubuntu
+Use ** Startup Disk Creator ** . It is installed by default on ubuntu, I successfully tried it on Ubuntu 18.04.  
+
 - To communicate with the raspberry pi, you can either setup an **ssh connection**, or just **connect a monitor, a mouse and a keyboard to the raspberry pi** and use it as a regular computer (which I did).
 
 ### Docker installation on the Raspberry pi OS
