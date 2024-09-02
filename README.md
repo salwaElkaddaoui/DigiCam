@@ -12,16 +12,16 @@ Below I give a quick step-by-step guide, [here](https://www.raspberrypi.org/docu
 2. Insert the SD Card in your computer and look for its mount point in your file system using `lsblk -p`
 4. Unmount it. For instance, in my case I run `umount /dev/mmcblk0`, **/dev/mmcblk0** being the mountpoint of my SD Card in my computer's file system.
 5. Format it:
-```bash
-sudo mkfs.ext4 /dev/sdX #adapt /dev/sdX to your case
-sudo fdisk /dev/sdX #Create a partition table.
-Press n to create a new partition.
-Choose the partition number (usually 1).
-Accept the default values for the first and last sectors to use the entire disk.
-Write the partition table and exit: Press w to write the changes to the disk and exit.
-``` 
-7. Copy the Raspbian OS image content to your SD Card: `sudo dd bs=4M if=2021-01-11-raspios-buster-armhf-lite.img of=/dev/mmcblk0 conv=fsync status=progress`
-8. Insert the SD Card on you raspberry pi, and power the latter on.
+  ```bash
+  sudo mkfs.ext4 /dev/sdX #adapt /dev/sdX to your case
+  sudo fdisk /dev/sdX # this command creates a partition table.
+  Press n to create a new partition.
+  Choose the partition number (usually 1).
+  Accept the default values for the first and last sectors to use the entire disk.
+  Write the partition table and exit: Press w to write the changes to the disk and exit.
+  ``` 
+6. Copy the Raspbian OS image content to your SD Card: `sudo dd bs=4M if=2021-01-11-raspios-buster-armhf-lite.img of=/dev/mmcblk0 conv=fsync status=progress`
+7. Insert the SD Card on you raspberry pi, and power the latter on.
 
 #### Method 2: Startup Disk Creator
 **Startup Disk Creator** is installed by default on ubuntu, I successfully tried it on Ubuntu 18.04.  
