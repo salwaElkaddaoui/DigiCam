@@ -11,7 +11,7 @@ Below I give a quick step-by-step guide, [here](https://www.raspberrypi.org/docu
 1. Download [the latest raspberry pi OS distribution](https://www.raspberrypi.org/downloads/raspberry-pi-os/) and unzip it: `unzip 2021-01-11-raspios-buster-armhf-lite.zip`
 2. Insert the SD Card in your computer and look for its mount point in your file system using `lsblk -p`
 4. Unmount it. For instance, in my case I run `umount /dev/sdX`, **/dev/sdX** being the mountpoint of my SD Card in my computer's file system.
-5. Format it:
+5. Format it (I chose the ext4 file system, you could use fat32 too):
   ```bash
   sudo mkfs.ext4 /dev/sdX #adapt /dev/sdX to your case
   sudo fdisk /dev/sdX # this command creates a partition table.
