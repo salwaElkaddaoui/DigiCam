@@ -81,12 +81,27 @@ sudo netplan apply #so that the changes take effect
 ssh pi@192.168.1.11
 ```
 
-### III. Docker installation on the Raspberry pi OS
+### III. Internet sharing between the desktop machine and the raspberry pi
+In a terminal on the dektop machine, run the following commands:
+```bash
+sudo sysctl -w net.ipv4.ip_forward=1
+sudo iptables -t nat -A POSTROUTING -o <internet_interface> -j MASQUERADE
+sudo iptables -A FORWARD -i <internet_interface> -o <raspberry_pi_interface> -m state --state RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A FORWARD -i <raspberry_pi_interface> -o <internet_interface> -j ACCEPT
+```
+To know the the names of the <internet_interface> and <raspberry_pi_interface> run ```ip a``` on the desktop machine.
+This setup is lost when the desktop machine is restarted. You can make it persistent by saving the ip tables and installing iptables-persistent:
+```bash
+sudo sh -c "iptables-save > /etc/iptables/rules.v4"
+sudo apt install iptables-persistent
+```
+
+### VI. Docker installation on the Raspberry pi OS
 1. Install **docker.io** instead of **docker-ce**: `sudo apt-get install docker.io`.
 2. Check the installation success with `sudo docker run hello-world`
 3. To spare yourself the pain of typing sudo at each docker command, run `sudo usermod -aG docker <your_username>`
 
-### VI. Creation of a tensorflow lite docker image
+### V. Creation of a tensorflow lite docker image
 #### First: creation of base image from buster (buster is the version name of the Raspberry pi OS)
 I used the first method of [this guide](https://docs.docker.com/develop/develop-images/baseimages/) to create a docker image of buster.
 In short, run these 2 commands from your working directory:
