@@ -4,7 +4,7 @@
 - a micro SD Card with a 16GB capacity. Read [this page](https://www.raspberrypi.org/documentation/installation/sd-cards.md) to know the minimum required size for the SD Card.
 
 ## Software
-### Raspberry pi OS installation on the SD Card
+### I. Raspberry pi OS installation on the SD Card
 
 #### Method 1: dd
 Below I give a quick step-by-step guide, [here](https://www.raspberrypi.org/documentation/installation/installing-images/linux.md) you'll find a more detailed description.
@@ -29,12 +29,64 @@ Below I give a quick step-by-step guide, [here](https://www.raspberrypi.org/docu
 
 - To communicate with the raspberry pi, you can either setup an **ssh connection**, or just **connect a monitor, a mouse and a keyboard to the raspberry pi** and use it as a regular computer (which I did).
 
-### Docker installation on the Raspberry pi OS
+### II. The establishment of an ssh connection in the raspberry pi (Headless mode)
+The headless mode of the raspberry pi refers to operating the raspberry pi without any keyboard, monitor or mouse and instead controlling it using a network-based interface.
+1. enable ssh in the raspberry pi:
+```bash
+sudo touch /media/$USER/bootfs/ssh
+```
+2. assign a static ip address to the ethernet interface of the raspberry pi:
+```bash
+sudo nano rootfs/etc/network/interfaces
+auto eth0
+iface eth0 inet static
+    address 192.168.1.11
+    netmask 255.255.255.0
+    gateway 192.168.1.1
+    dns-nameservers 8.8.8.8 8.8.4.4
+```
+3. Set the username and the password for the raspberry pi: in the boot partition of the SD card create a file named userconf
+```bash
+cd /media/$USER/bootfs
+sudo nano userconf
+pi:<encrypted-password>
+```
+To encrypt the password, run this command in the terminal.
+```bash
+echo 'yourpassword' | openssl passwd -6 -stdin
+```
+4. On the side of the desktop machine, assign a static ip address to the ethernet interface:
+```bash
+sudo nano /etc/netplan/01-netcfg.yaml
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eth0:
+      dhcp4: no
+      addresses:
+        - 192.168.1.12/24
+      gateway4: 192.168.1.1
+      nameservers:
+        addresses:
+          - 8.8.8.8
+          - 8.8.4.4
+```
+```bash
+sudo netplan apply #so that the changes take effect
+```
+5. insert the SD card into the raspberry pi, connect the ethernet ports of the raspberry pi and the desktop machine using an ethernet cable and power the raspberry pi on.
+6. open a terminal in the desktop machine and establish an ssh connection:
+```bash
+ssh pi@192.168.1.11
+```
+
+### III. Docker installation on the Raspberry pi OS
 1. Install **docker.io** instead of **docker-ce**: `sudo apt-get install docker.io`.
 2. Check the installation success with `sudo docker run hello-world`
 3. To spare yourself the pain of typing sudo at each docker command, run `sudo usermod -aG docker <your_username>`
 
-### Creation of a tensorflow lite docker image
+### VI. Creation of a tensorflow lite docker image
 #### First: creation of base image from buster (buster is the version name of the Raspberry pi OS)
 I used the first method of [this guide](https://docs.docker.com/develop/develop-images/baseimages/) to create a docker image of buster.
 In short, run these 2 commands from your working directory:
