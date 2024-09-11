@@ -74,11 +74,14 @@ network:
 sudo netplan apply #so that the changes take effect
 ```
 Note that there is no need for a gateway when cofiguring the ethernet interfaces of the raspberry pi and the host machine. The gateway is only necessary if one of the devices needs to access another network (e.g., the internet) through that interface. If you need to set a gateway for the Ethernet local network between the Raspberry Pi and the host machine, make sure the gateway's IP address is different from that of the Wi-Fi network to avoid conflicts between the two gateways.
+
 5. insert the SD card into the raspberry pi, connect the ethernet ports of the raspberry pi and the desktop machine using an ethernet cable and power the raspberry pi on.
+
 6. open a terminal in the desktop machine and establish an ssh connection:
 ```bash
 ssh pi@192.168.1.11
 ```
+
 7. Once logged in the raspberry pi, connect the raspberry pi to the internet using ```sudo raspi-config```. No need for a wifi dongle or any other hardware, the raspberry pi contains built-in hardware for wifi and bluetooth connectivity.
 
 
