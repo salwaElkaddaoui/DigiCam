@@ -40,9 +40,8 @@ sudo touch /media/$USER/bootfs/ssh
 sudo nano rootfs/etc/network/interfaces
 auto eth0
 iface eth0 inet static
-    address 192.168.1.11
+    address 192.168.2.11
     netmask 255.255.255.0
-    gateway 192.168.1.1
     dns-nameservers 8.8.8.8 8.8.4.4
 ```
 3. Set the username and the password for the raspberry pi: in the boot partition of the SD card create a file named userconf
@@ -65,8 +64,7 @@ network:
     eth0:
       dhcp4: no
       addresses:
-        - 192.168.1.12/24
-      gateway4: 192.168.1.1
+        - 192.168.2.12/24
       nameservers:
         addresses:
           - 8.8.8.8
@@ -75,6 +73,7 @@ network:
 ```bash
 sudo netplan apply #so that the changes take effect
 ```
+Note that there is no need for a gateway when cofiguring the ethernet interfaces of the raspberry pi and the host machine. The gateway is only necessary if one of the devices needs to access another network (e.g., the internet) through that interface. If you need to set a gateway for the Ethernet local network between the Raspberry Pi and the host machine, make sure the gateway's IP address is different from that of the Wi-Fi network to avoid conflicts between the two gateways.
 5. insert the SD card into the raspberry pi, connect the ethernet ports of the raspberry pi and the desktop machine using an ethernet cable and power the raspberry pi on.
 6. open a terminal in the desktop machine and establish an ssh connection:
 ```bash
