@@ -24,7 +24,10 @@ Below I give a quick step-by-step guide, [here](https://www.raspberrypi.org/docu
 7. Insert the SD Card on you raspberry pi, and power the latter on.
 
 #### Method 2: Startup Disk Creator
-**Startup Disk Creator** is installed by default on ubuntu, I successfully tried it on Ubuntu 18.04.  
+**Startup Disk Creator** is installed by default on ubuntu, I successfully tried it on Ubuntu 18.04.
+
+#### Method 3: rpi-imager
+This is the easiest method of all. You don't even need to download the .img file of the operating system in your computer.
 
 
 - To communicate with the raspberry pi, you can either setup an **ssh connection**, or just **connect a monitor, a mouse and a keyboard to the raspberry pi** and use it as a regular computer (which I did).
