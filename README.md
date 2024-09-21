@@ -87,6 +87,16 @@ ssh pi@192.168.1.11
 
 7. Once logged in the raspberry pi, connect the raspberry pi to the internet using ```sudo raspi-config```. No need for a wifi dongle or any other hardware, the raspberry pi contains built-in hardware for wifi and bluetooth connectivity.
 
+### Swap size extension to 2G
+```bash
+sudo swapon --show
+sudo swapoff -a
+sudo dd if=/dev/zero of=/swapfile bs=1M count=2048
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon --show
+```
+To ensure the swap size is persistent after a reboot, verify that the following line is in your /etc/fstab:```/swapfile none swap sw 0 0```
 
 ### III. Docker installation on the Raspberry pi OS
 1. Install **docker.io** instead of **docker-ce**: `sudo apt-get install docker.io`.
