@@ -87,23 +87,19 @@ ssh pi@192.168.1.11
 
 7. Once logged in the raspberry pi, connect the raspberry pi to the internet using ```sudo raspi-config```. No need for a wifi dongle or any other hardware, the raspberry pi contains built-in hardware for wifi and bluetooth connectivity.
 
-### Swap size extension to 2G
-```bash
-sudo swapon --show
-sudo swapoff -a
-sudo dd if=/dev/zero of=/swapfile bs=1M count=2048
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon --show
-```
-To ensure the swap size is persistent after a reboot, verify that the following line is in your /etc/fstab:```/swapfile none swap sw 0 0```
+### III. Swap size extension to 2G
+- ```sudo nano /etc/dphys-swapfile```
+- Find the line that starts with CONF_SWAPSIZE and change it to this: ```CONF_SWAPSIZE=2048```
+- Save te file and exit
+- So that the changes take effect: ```sudo systemctl restart dphys-swapfile```
+- Verify the new swapsize: ```free -h```
 
-### III. Docker installation on the Raspberry pi OS
+### IV. Docker installation on the Raspberry pi OS
 1. Install **docker.io** instead of **docker-ce**: `sudo apt-get install docker.io`.
 2. Check the installation success with `sudo docker run hello-world`
 3. To spare yourself the pain of typing sudo at each docker command, run `sudo usermod -aG docker <your_username>`
 
-### VI. Creation of a tensorflow lite docker image
+### V. Creation of a tensorflow lite docker image
 #### First: creation of base image from buster (buster is the version name of the Raspberry pi OS)
 I used the first method of [this guide](https://docs.docker.com/develop/develop-images/baseimages/) to create a docker image of buster.
 In short, run these 2 commands from your working directory:
