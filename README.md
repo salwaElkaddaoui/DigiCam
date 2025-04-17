@@ -1,3 +1,5 @@
+# Overview
+Digit image classification on Raspberry Pi using TensorFlow Lite.
 # Hardware and software setup
 ## Hardware
 - a [raspberry pi 2 Model B](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/)
